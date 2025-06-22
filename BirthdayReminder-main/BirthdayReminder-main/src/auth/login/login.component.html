@@ -1,0 +1,33 @@
+<div class="header">
+  <h1 class="half-title">Birthday Reminder</h1>
+  <img src="assets/logo.png" alt="Logo" class="logo2">
+</div>
+
+<div class="form-container">
+  <div class="form-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+  </div>
+  <form nz-form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your email!">
+        <input nz-input type="email" formControlName="email" placeholder="Email">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your password!">
+        <input nz-input type="password" formControlName="password" placeholder="Password">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <button nz-button nzType="primary" [disabled]="!loginForm.valid">Login</button>
+    </nz-form-item>
+    <nz-form-item>
+      <label nz-checkbox formControlName="rememberMe">
+        <input type="checkbox"> Remember Me
+      </label>
+    </nz-form-item>
+    <div class="register-link">
+      You don't have an account? <a [routerLink]="['/auth/register']">Register</a>
+    </div>
+  </form>
+</div>

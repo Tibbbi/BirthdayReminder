@@ -1,0 +1,21 @@
+.next-birthday-container {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ede7f6; /* Nuanță foarte deschisă de mov */
+  border: 1px solid #d1c4e9; /* Nuanță mai închisă de mov */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.next-birthday-container h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #7e57c2; /* Nuanță de mov */
+}
+
+.next-birthday-container p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #5e35b1; /* Nuanță de mov */
+}

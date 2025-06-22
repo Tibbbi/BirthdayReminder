@@ -1,0 +1,20 @@
+{
+  "friends": [
+    {
+      "id": "7800",
+      "firstName": "John",
+      "lastName": "Doe",
+      "phone": "0222992929",
+      "city": "CONSTANTA",
+      "birthday": "2000-06-25T09:47:08.040Z"
+    },
+    {
+      "id": "341d",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "phone": "1099808342",
+      "city": "Pitesti",
+      "birthday": "2021-07-20T09:47:36.181Z"
+    }
+  ]
+}

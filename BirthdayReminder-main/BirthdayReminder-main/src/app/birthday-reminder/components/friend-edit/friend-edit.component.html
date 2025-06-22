@@ -1,0 +1,49 @@
+<div class="header">
+  <img src="assets/logo.png" alt="Logo" class="logo2">
+  <h1>Birthday Reminder</h1>
+</div>
+
+<div class="form-container">
+  <form [formGroup]="friendForm" (ngSubmit)="updateFriend()" nz-form nzLayout="vertical">
+    <nz-form-item>
+      <nz-form-label nzFor="firstName" nzRequired>First Name</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="firstName" id="firstName" placeholder="First Name" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="lastName" nzRequired>Last Name</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="lastName" id="lastName" placeholder="Last Name" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="phone" nzRequired>Phone</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="phone" id="phone" placeholder="Phone" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="city" nzRequired>City</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="city" id="city" placeholder="City" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzFor="birthday" nzRequired>Birthday</nz-form-label>
+      <nz-form-control>
+        <nz-date-picker formControlName="birthday" id="birthday" nzFormat="yyyy-MM-dd"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <div class="submit-button-container">
+      <button nz-button nzType="primary" type="submit">
+        <i nz-icon nzType="save"></i> Update Friend
+      </button>
+    </div>
+  </form>
+</div>

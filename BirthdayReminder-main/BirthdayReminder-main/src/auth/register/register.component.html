@@ -1,0 +1,45 @@
+<div class="header">
+  <h1 class="half-title">Birthday Reminder</h1>
+  <img src="assets/logo.png" alt="Logo" class="logo2">
+</div>
+
+<div class="form-container">
+  <div class="form-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+  </div>
+  <form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your first name!">
+        <input nz-input formControlName="firstName" placeholder="First Name">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your last name!">
+        <input nz-input formControlName="lastName" placeholder="Last Name">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your email!">
+        <input nz-input type="email" formControlName="email" placeholder="Email">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzErrorTip]="getErrorMsg('password')">
+        <input nz-input type="password" formControlName="password" placeholder="Password">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please confirm your password!" [nzValidateStatus]="registerForm.controls['confirmPassword']">
+        <input nz-input formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+        <ng-container *ngIf="registerForm.get('confirmPassword')?.errors?.['mismatch']">
+          <div class="error-message">
+            Passwords must match.
+          </div>
+        </ng-container>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <button nz-button nzType="primary" [disabled]="!registerForm.valid">Register</button>
+    </nz-form-item>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+/* Stilizare pentru antet */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f3e5f5; /* Nuanță deschisă de mov */
+  border-radius: 8px;
+}
+
+.header img.logo {
+  height: 30px; /* Micșorăm logo-ul */
+}
+
+.header h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 24px;
+  color: #673ab7; /* Nuanță de mov */
+  margin: 0;
+}
+
+/* Stilizare pentru formular */
+.form-container {
+  background-color: #ede7f6; /* Nuanță foarte deschisă de mov */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-message {
+  color: #d32f2f; /* Nuanță de roșu pentru erori */
+}
+
+.submit-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+::ng-deep .ant-form-item-label > label {
+  color: #5e35b1; /* Nuanță de mov */
+}
+
+::ng-deep .ant-input,
+::ng-deep .ant-picker {
+  border-color: #7e57c2; /* Nuanță de mov */
+}
+
+::ng-deep .ant-input:focus,
+::ng-deep .ant-input:hover,
+::ng-deep .ant-picker-focused .ant-picker {
+  border-color: #5e35b1; /* Nuanță de mov */
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2);
+}
+
+::ng-deep .ant-btn-primary {
+  background-color: #5e35b1; /* Nuanță de mov */
+  border-color: #5e35b1;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+::ng-deep .ant-btn-primary:hover,
+::ng-deep .ant-btn-primary:focus {
+  background-color: #673ab7; /* Nuanță mai deschisă de mov */
+  border-color: #673ab7;
+}

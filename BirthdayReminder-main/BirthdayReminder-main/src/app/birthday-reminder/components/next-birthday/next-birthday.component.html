@@ -1,0 +1,8 @@
+<!-- next-birthday.component.html -->
+
+<div class="next-birthday-container" *ngIf="nextFriend">
+  <h3>Don't forget about</h3>
+  <p>{{ nextFriend.firstName }}'s birthday 🎉</p>
+  <p>Is born on  {{ nextFriend.birthday | date }}
+</div>
+

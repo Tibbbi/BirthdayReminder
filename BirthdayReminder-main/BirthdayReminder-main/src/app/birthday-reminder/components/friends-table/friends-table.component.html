@@ -1,0 +1,61 @@
+<div class="header">
+  <img src="assets/logo.png" alt="Logo" class="logo">
+  <h1>Birthday Reminder</h1>
+  <button routerLink="/add-friend" type="button" nz-button nzType="primary">Add Friend</button>
+  <button type="button" nz-button nzType="default" (click)="logout()">Logout</button>
+</div>
+
+<div class="next-birthday">
+  <app-next-birthday [nextFriend]="nextBirthdayFriend"></app-next-birthday>
+</div>
+
+<nz-calendar [nzDateCell]="dateCellRender"></nz-calendar>
+
+<ng-template #dateCellRender let-date>
+  <ng-container *ngIf="hasBirthday(date)">
+    <div *ngFor="let friend of getFriendsWithBirthday(date)">
+      <nz-badge nzStatus="success" [nzText]="getBirthdayMessage(friend.firstName)"></nz-badge>
+    </div>
+  </ng-container>
+</ng-template>
+
+<div class="search-bar">
+  <nz-select [(ngModel)]="searchCategory" nzAllowClear nzPlaceHolder="Selectează categoria" nzSuffixIcon="search">
+    <nz-option nzValue="firstName" nzLabel="Nume"></nz-option>
+    <nz-option nzValue="lastName" nzLabel="Prenume"></nz-option>
+    <nz-option nzValue="phone" nzLabel="Telefon"></nz-option>
+    <nz-option nzValue="city" nzLabel="Oraș"></nz-option>
+    <nz-option nzValue="birthday" nzLabel="Data Nașterii"></nz-option>
+  </nz-select>
+  <input nz-input [(ngModel)]="searchTerm" (input)="filterFriends()" placeholder="Căutare..." nzPrefixIcon="search" />
+</div>
+
+<nz-table #basicTable [nzData]="filteredFriends" [nzBordered]="true">
+  <thead>
+  <tr>
+    <th (click)="toggleSort('firstName')">Nume</th>
+    <th (click)="toggleSort('lastName')">Prenume</th>
+    <th (click)="toggleSort('phone')">Telefon</th>
+    <th (click)="toggleSort('city')">Oraș</th>
+    <th (click)="toggleSort('birthday')">Data Nașterii</th>
+    <th>Acțiuni</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let friend of filteredFriends">
+    <td>{{ friend.firstName }}</td>
+    <td>{{ friend.lastName }}</td>
+    <td>{{ friend.phone }}</td>
+    <td>{{ friend.city }}</td>
+    <td>{{ friend.birthday | date:'mediumDate' }}</td>
+    <td>
+      <button nz-button nzType="default" [routerLink]="['/edit-friend', friend.id]">
+        <i nz-icon nzType="edit"></i>Editează
+      </button>
+      <button nz-button nzType="primary" nzDanger (click)="deleteFriend(friend)">
+        <i nz-icon nzType="delete"></i>Șterge
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
